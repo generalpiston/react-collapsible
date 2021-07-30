@@ -29,6 +29,7 @@ export interface CollapsibleProps extends React.HTMLProps<Collapsible> {
   triggerWhenOpen?: string | React.ReactElement<any>;
   triggerDisabled?: boolean;
   lazyRender?: boolean;
+  closedHeight?: number|string;
   overflowWhenOpen?:
     | "hidden"
     | "visible"
