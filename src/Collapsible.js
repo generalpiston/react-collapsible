@@ -24,7 +24,7 @@ class Collapsible extends Component {
       this.state = {
         isClosed: true,
         shouldSwitchAutoOnNextCycle: false,
-        height: 0,
+        height: props.closedHeight,
         transition: `height ${props.transitionTime}ms ${props.easing}`,
         hasBeenOpened: false,
         overflow: 'hidden',
@@ -46,7 +46,7 @@ class Collapsible extends Component {
       this.timeout = window.setTimeout(() => {
         // Set small timeout to ensure a true re-render
         this.setState({
-          height: 0,
+          height: props.closedHeight,
           overflow: 'hidden',
           isClosed: true,
           shouldSwitchAutoOnNextCycle: false,
@@ -304,6 +304,7 @@ Collapsible.propTypes = {
     'unset',
   ]),
   contentHiddenWhenClosed: PropTypes.bool,
+  closedHeight: PropTypes.number,
   triggerSibling: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   tabIndex: PropTypes.number,
   contentContainerTagName: PropTypes.string,
@@ -329,6 +330,7 @@ Collapsible.defaultProps = {
   contentInnerClassName: '',
   className: '',
   triggerSibling: null,
+  closedHeight: 0,
   onOpen: () => {},
   onClose: () => {},
   onOpening: () => {},
